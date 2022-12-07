@@ -1,0 +1,24 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #bbb;
+  text-align: center;
+}
+
+td.white {
+  width: 50px;
+  height: 50px;
+  background-color: #fff;
+}
+
+td.black {
+  width: 50px;
+  height: 50px;
+  background-color: #000;
+}
+
+table {
+  margin: 0 auto;
+}
