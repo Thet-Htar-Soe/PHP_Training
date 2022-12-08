@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000;
+  color: #ff6347;
+  text-align: center;
+}
+
+input {
+  display: inline-block;
+  margin-bottom: 15px;
+  padding: 10px;
+  border: none;
+  outline: none;
+}
+
+input::placeholder {
+  color: #ff6347;
+}
+
+
+input[type=submit] {
+  padding: 15px 40px;
+  border: none;
+  background-color: #ff6347;
+  cursor: pointer;
+  border-radius: 200px;
+}
