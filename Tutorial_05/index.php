@@ -10,7 +10,7 @@
     <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 
-<body>
+<body> 
     <h1>Tutorial_05</h1>
     <h2>Reading Text File</h2>
     <p>
