@@ -18,10 +18,10 @@
     if ($_SESSION['email'] == $email && $_SESSION['password'] == $password) {
     ?>
 
-    <h1>Hello <?php echo $_SESSION["email"]?></h1>
-    <form action="" method="POST">
-        <input type="submit" name="submit" value="Logout">
-    </form>
+        <h1>Hello <?php echo $_SESSION["email"] ?></h1>
+        <form action="" method="POST">
+            <input type="submit" name="submit" value="Logout">
+        </form>
 
     <?php
     } else {
@@ -31,7 +31,7 @@
     if (isset($_POST["submit"])) {
         header("Location:index.php");
         session_destroy();
-    }    
+    }
     ?>
 
 </body>

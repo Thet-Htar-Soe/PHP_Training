@@ -8,6 +8,7 @@ body {
   text-align: center;
 }
 
+
 h1 {
   margin: 50px 0px 30px;
 }
@@ -17,7 +18,7 @@ h2 {
 }
 
 input {
-  display: inline-block;
+  display: block;
   margin-bottom: 15px;
   padding: 10px;
   border: none;
