@@ -9,8 +9,8 @@ while ($i <= 11) {
     }
     $k = 1;
     while ($k <= $i) {
-        echo "*";
-        $k++;
+        echo "*"; 
+        $k++; 
     }
     echo "<br>";
     $i += 2;  
