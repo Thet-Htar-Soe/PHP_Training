@@ -12,7 +12,7 @@
 
 <body>
     <h1>Tutorial_01 Chess Board</h1>
-    <br>
+    <br>  
     <table>
         <?php
         $i = 1;
