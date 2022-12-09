@@ -3,9 +3,17 @@
 }
 
 body {
-  background-color: #000;
-  color: #ff6347;
+  background-color: #c2d4e4;
+  color: #000;
   text-align: center;
+}
+
+h1 {
+  margin: 50px 0px 30px;
+}
+
+h2 {
+  color: #ff0000;
 }
 
 input {
@@ -17,14 +25,15 @@ input {
 }
 
 input::placeholder {
-  color: #ff6347;
+  color: #000;
 }
 
 
 input[type=submit] {
   padding: 15px 40px;
   border: none;
-  background-color: #ff6347;
+  background-color: #5347ff;
+  color: #fff;
   cursor: pointer;
   border-radius: 200px;
 }
