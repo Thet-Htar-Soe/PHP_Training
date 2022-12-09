@@ -35,7 +35,7 @@
             $forday = floor(($days - ($years * 365) - ($months * 30)));
             echo "<h3>Your Age is " . $years . "years/" . $months . "months/" . $forday . "days</h3>";
         } else {
-            echo "<h2>Enter Valid Date!!!</h2>";
+            echo "<h2>Enter Valid Date!!!</h2>"; 
         }
     }
     ?>
