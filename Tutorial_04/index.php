@@ -51,7 +51,7 @@
             } elseif (($_SESSION['email']) !== "thethtarsoe2761@gmail.com" && $_SESSION['password'] == "123456") {
                 echo "<h2>Wrong Email!!!</h2>";
             } else {
-                echo "<h2>Please Try Again!!!</h2>";
+                echo "<h2>Please Try Again!!!</h2>"; 
             }
         }
     }
