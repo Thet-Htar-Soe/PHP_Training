@@ -26,7 +26,7 @@
     <section class="sec-excel">
         <h2>Reading Excel File</h2>
         <?php
-        require 'lib/vendor/autoload.php';
+        require 'vendor/autoload.php';
         $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
         $spreadsheet = $reader->load("file/sample.xlsx");
         $sheetData = $spreadsheet->getActiveSheet()->toArray();
@@ -85,7 +85,7 @@
     <section class="sec-docx">
         <h2>Reading Docx File</h2>
         <?php
-        require_once 'lib/vendor/autoload.php';
+        require_once 'vendor/autoload.php';
         $docxPath = "file/sample.docx";
         $phpWord = PhpOffice\PhpWord\IOFactory::createReader('Word2007')->load($docxPath);
         foreach ($phpWord->getSections() as $section) {
