@@ -1,0 +1,100 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0 auto;
+  background-color: #e8ccf8;
+  text-align: center;
+  max-width: 1440px;
+}
+
+h1 {
+  font-size: 50px;
+  margin: 20px 0px;
+}
+
+h2 {
+  width: 300px;
+  color: #008000;
+  background-color: #fff;
+  margin: 0 auto;
+}
+
+h3 {
+  width: 300px;
+  color: #ff0000;
+  background-color: #fff;
+  margin: 0 auto;
+}
+
+form {
+  margin-bottom: 70px;
+}
+
+small {
+  display: inline-block;
+  color: red;
+}
+
+.form-group {
+  margin: 10px 0px;
+}
+
+input {
+  padding: 10px;
+  outline: none;
+  border: none;
+}
+
+
+input::placeholder {
+  background-color: transparent;
+}
+
+input[type=file] {
+  border-bottom: none;
+  margin-left: 100px;
+}
+
+.upload-btn {
+  padding: 10px 25px;
+  border-radius: 200px;
+  background-color: #87c0f2;
+  border: 2px solid transparent;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.upload-btn:hover {
+  color: #000;
+  border: 2px solid #000;
+  background-color: transparent;
+}
+
+table {
+  width: 500px;
+  margin: 0 auto;
+}
+
+th,
+td {
+  /* padding: 20px 0px; */
+  border: 1px solid #000;
+}
+
+.delete-btn {
+  padding: 10px 25px;
+  border-radius: 200px;
+  background-color: red;
+  color: #fff;
+  border: 2px solid transparent;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
