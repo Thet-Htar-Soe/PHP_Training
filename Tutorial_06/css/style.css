@@ -10,22 +10,22 @@ body {
 }
 
 h1 {
-  font-size: 50px;
   margin: 20px 0px;
+  font-size: 50px;
 }
 
 h2 {
   width: 300px;
-  color: #008000;
-  background-color: #fff;
   margin: 0 auto;
+  background-color: #fff;
+  color: #008000;
 }
 
 h3 {
   width: 300px;
-  color: #ff0000;
-  background-color: #fff;
   margin: 0 auto;
+  background-color: #fff;
+  color: #ff0000;
 }
 
 form {
@@ -43,33 +43,32 @@ small {
 
 input {
   padding: 10px;
-  outline: none;
   border: none;
+  outline: none;
 }
-
 
 input::placeholder {
   background-color: transparent;
 }
 
 input[type=file] {
-  border-bottom: none;
   margin-left: 100px;
+  border-bottom: none;
 }
 
 .upload-btn {
   padding: 10px 25px;
-  border-radius: 200px;
-  background-color: #87c0f2;
   border: 2px solid transparent;
+  background-color: #87c0f2;
   text-transform: uppercase;
   cursor: pointer;
+  border-radius: 200px;
 }
 
 .upload-btn:hover {
-  color: #000;
   border: 2px solid #000;
   background-color: transparent;
+  color: #000;
 }
 
 table {
@@ -77,23 +76,23 @@ table {
   margin: 0 auto;
 }
 
-th,
 td {
-  /* padding: 20px 0px; */
   border: 1px solid #000;
+  vertical-align: middle;
 }
 
 .delete-btn {
+  display: inline-block;
   padding: 10px 25px;
-  border-radius: 200px;
+  border: 2px solid transparent;
   background-color: red;
   color: #fff;
-  border: 2px solid transparent;
   text-transform: uppercase;
   cursor: pointer;
+  border-radius: 200px;
 }
 
-img {
+.images {
   width: 80px;
   height: 80px;
   border-radius: 50%;
