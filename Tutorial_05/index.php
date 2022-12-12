@@ -27,12 +27,8 @@
         <h2>Reading Excel File</h2>
         <?php
         require 'lib/vendor/autoload.php';
-
-        use PhpOffice\PhpSpreadsheet\Spreadsheet;
-
         $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
         $spreadsheet = $reader->load("file/sample.xlsx");
-        $d = $spreadsheet->getSheet(0)->toArray();
         $sheetData = $spreadsheet->getActiveSheet()->toArray();
         echo "<table>";
         for ($i = 0; $i < 10; $i++) {
@@ -90,9 +86,6 @@
         <h2>Reading Docx File</h2>
         <?php
         require_once 'lib/vendor/autoload.php';
-
-        use PhpOffice\PhpWord\TemplateProcessor;
-
         $docxPath = "file/sample.docx";
         $phpWord = PhpOffice\PhpWord\IOFactory::createReader('Word2007')->load($docxPath);
         foreach ($phpWord->getSections() as $section) {
