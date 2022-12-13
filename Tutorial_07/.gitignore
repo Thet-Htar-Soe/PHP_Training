@@ -1,1 +1,3 @@
-/lib/phpqrcode
+
+!lib
+lib/*
