@@ -1,34 +1,36 @@
 <h1 style="text-align:center;">Tutorial_02 Diamond Shape</h1>
+<div style="width:auto;height:auto;text-align:center;">
 <?php
-$i = 1;
-while ($i <= 11) {
-    $j = 11;
-    while ($j >= $i) {
+$upperSide = 1;
+while ($upperSide <= 11) {
+    $space = 11;
+    while ($space >= $upperSide) {
         echo "&nbsp";
-        $j--;
+        $space--;
     }
-    $k = 1;
-    while ($k <= $i) {
-        echo "*"; 
-        $k++; 
+    $diamond = 1;
+    while ($diamond <= $upperSide) {
+        echo " *   "; 
+        $diamond++; 
     }
     echo "<br>";
-    $i += 2;  
+    $upperSide += 2;  
 }
 
-$a = 9;
-while ($a >= 1) {
-    $j = 11;
-    while ($j >= $a) {
+$lowerSide = 9;
+while ($lowerSide >= 1) {
+    $space= 11;
+    while ($space >= $lowerSide) {
         echo "&nbsp";
-        $j--;
+        $space--;
     }
-    $k = 1;
-    while ($k <= $a) {
-        echo "*";
-        $k++;
+    $diamond = 1;
+    while ($diamond <= $lowerSide) {
+        echo " *";
+        $diamond++;
     }
     echo "<br>";
-    $a -= 2;
+    $lowerSide -= 2;
 }
 ?>
+</div>
