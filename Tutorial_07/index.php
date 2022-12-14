@@ -17,7 +17,7 @@
     $successCode = "";
     $errorCode = "";
     $imagePath = "";
-    include("lib/vendor/autoload.php");
+    include("vendor/autoload.php");
 
     use Endroid\QrCode\QrCode;
     use Endroid\QrCode\Writer\PngWriter;

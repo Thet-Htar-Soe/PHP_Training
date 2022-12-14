@@ -1,6 +1,4 @@
 {
-    "name": "lenovo/tutorial_07_01",
-    "description": "hello",
     "require": {
         "endroid/qr-code": "^4.7"
     }
