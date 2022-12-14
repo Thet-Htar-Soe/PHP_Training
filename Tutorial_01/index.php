@@ -15,21 +15,21 @@
     <br>  
     <table>
         <?php
-        $i = 1;
-        while ($i <= 8) {
+        $row = 1;
+        while ($row <= 8) {
             echo  "<tr>";
-            $j = 1;
-            while ($j <= 8) {
-                $total = $i + $j;
+            $col = 1;
+            while ($col <= 8) {
+                $total = $row + $col;
                 if ($total % 2 == 0) {
                     echo "<td class='white'></td>";
                 } else {
                     echo "<td class='black'></td>";
                 }
-                $j++;
+                $col++;
             }
             echo "</tr>";
-            $i++;
+            $row++;
         }
         ?>
     </table>
