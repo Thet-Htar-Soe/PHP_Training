@@ -30,8 +30,10 @@
         $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
         $spreadsheet = $reader->load("file/sample.xlsx");
         $sheetData = $spreadsheet->getActiveSheet()->toArray();
+        // print_r(($sheetData->value));
+        print_r(count($sheetData));
         echo "<table>";
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 0; $i < count($sheetData); $i++) {
             echo "<tr>";
             echo "<td>" . $sheetData[$i][0] . "</td>";
             echo "<td>" . $sheetData[$i][1] . "</td>";

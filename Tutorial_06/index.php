@@ -35,6 +35,7 @@
             $getImagePath = $getFolder . '/' . $getImage;
             $allowExtension = ["jpg", "png", "jpeg"];
             $splitImageName = explode(".", $getImage);
+            print_r($splitImageName);
             $imageExtension = strtolower(end($splitImageName));
             if (in_array($imageExtension, $allowExtension)) {
                 move_uploaded_file($getTmp, $getImagePath);
