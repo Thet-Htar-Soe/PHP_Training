@@ -10,13 +10,13 @@
     <link href="./css/qrcode-style.css" rel="stylesheet" type="text/css" />
 </head>
 
-<body>
+<body> 
     <?php
     $generateQRText = "";
     $errorMsg = "";
     $successCode = "";
     $errorCode = "";
-    $imagePath = "";
+    $imagePath = ""; 
     include("vendor/autoload.php");
 
     use Endroid\QrCode\QrCode;
