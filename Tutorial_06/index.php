@@ -21,6 +21,12 @@
         $getFolder = $_POST["folder"];
         $getImage  = $_FILES['image']['name'];
         $getTmp    = $_FILES['image']['tmp_name'];
+        $allowExtension = ["jpg", "png", "jpeg"];
+        $splitImageName = explode(".", $getImage);
+        $imageExtension = strtolower(end($splitImageName));
+        if (!in_array($imageExtension, $allowExtension)) {
+            $errorImage = "Please Choose Valid Extension!!!";
+        }
         if (empty($getFolder) || empty($getImage)) {
             if (empty($getFolder)) {
                 $errorFolder = "Please Enter Folder Name!!!";
@@ -33,15 +39,9 @@
                 mkdir($getFolder);
             }
             $getImagePath = $getFolder . '/' . $getImage;
-            $allowExtension = ["jpg", "png", "jpeg"];
-            $splitImageName = explode(".", $getImage);
-            print_r($splitImageName);
-            $imageExtension = strtolower(end($splitImageName));
             if (in_array($imageExtension, $allowExtension)) {
                 move_uploaded_file($getTmp, $getImagePath);
                 $successMsg = "Image Uploaded Successfully!!!";
-            } else {
-                $validExtError = "Please Choose Valid Extension!!!";
             }
         }
     }
@@ -76,7 +76,7 @@
                 echo "<td><h4>" . $image . "</h4></td>";
                 echo "<td>";
         ?>
-                <a href="delete.php?photo=<?php echo $image; ?>" class="delete-btn" onclick="alert('Are You Sure You Want To Delete?')">Delete</a>
+                <a href="delete.php?photo=<?php echo $image; ?>" class="delete-btn">Delete</a>
         <?php
                 echo "</td>";
                 echo "</tr>";
