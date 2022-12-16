@@ -17,6 +17,7 @@
     $successMsg = "";
     $validExtError = "";
     $getFolder = "";
+    $thead = "";
     if (isset($_POST["upload"])) {
         $getFolder = $_POST["folder"];
         $getImage  = $_FILES['image']['name'];
@@ -44,28 +45,36 @@
                 $successMsg = "Image Uploaded Successfully!!!";
             }
         }
-    }
+    } 
     ?>
 
     <h1>Tutorial_06</h1>
     <form action="" method="POST" enctype="multipart/form-data">
         <div class="form-group">
             <input type="text" name="folder" placeholder="Enter Your Folder Name" value="<?php echo $getFolder; ?>"><br>
-            <small><?php echo $errorFolder; ?></small>
+            <h3><?php echo $errorFolder; ?></h3>
         </div>
         <div class="form-group">
             <input type="file" name="image"><br>
-            <small><?php echo $errorImage; ?></small>
+            <h3><?php echo $errorImage; ?></h3>
+            <h3><?php echo  $validExtError; ?></h3>
         </div>
         <div>
             <button type="submit" name="upload" class="upload-btn">Upload</button>
         </div><br>
         <h2><?php echo  $successMsg; ?></h2>
-        <h3><?php echo  $validExtError; ?></h3>
+
     </form>
     <table>
+        <tr>
+            <th>Image</th>
+            <th>Image Path</th>
+            <th>Action</th>
+        </tr>
+      
         <?php
         $dirs = array_filter(glob("*"), 'is_dir');
+        $some = false;
         foreach ($dirs as $dir) {
             $images = glob($dir . DIRECTORY_SEPARATOR . "*.{jpg,png,jpeg,JPG,PNG,JPEG}", GLOB_BRACE);
             foreach ($images as $image) {
@@ -76,7 +85,7 @@
                 echo "<td><h4>" . $image . "</h4></td>";
                 echo "<td>";
         ?>
-                <a href="delete.php?photo=<?php echo $image; ?>" class="delete-btn">Delete</a>
+                <a href="delete.php?photo=<?php echo $image; ?>"  onclick="return confirm('Are You Sure You Want To Delete?')" class="delete-btn">Delete</a>
         <?php
                 echo "</td>";
                 echo "</tr>";

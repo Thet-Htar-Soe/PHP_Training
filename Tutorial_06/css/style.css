@@ -22,19 +22,13 @@ h2 {
 }
 
 h3 {
-  width: 300px;
-  margin: 0 auto;
-  background-color: #fff;
+  text-align: left;
+  margin-left: 609px;
   color: #ff0000;
 }
 
 form {
   margin-bottom: 70px;
-}
-
-small {
-  display: inline-block;
-  color: red;
 }
 
 .form-group {
@@ -63,6 +57,7 @@ input[type=file] {
   text-transform: uppercase;
   cursor: pointer;
   border-radius: 200px;
+  margin: 10px 0px;
 }
 
 .upload-btn:hover {
@@ -76,7 +71,7 @@ table {
   margin: 0 auto;
 }
 
-td {
+td,th {
   padding: 30px 50px;
   border: 1px solid #000;
   vertical-align: middle;
