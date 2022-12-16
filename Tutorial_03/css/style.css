@@ -2,6 +2,8 @@ body {
   background-color: #97bbe7;
   color: #000;
   text-align: center;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 h1 {
@@ -9,8 +11,9 @@ h1 {
 }
 
 h2 {
-  margin-top: 20px;
+  margin: 7px 0px 0px 545px;
   color: #ff0000;
+  text-align: left;
 }
 
 h3 {

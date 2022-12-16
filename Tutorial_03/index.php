@@ -11,20 +11,15 @@
 </head>
 
 <body>
-    <h1>Tutorial_03</h1>
-    <form action="" method="POST">
-        <input type="date" name="calendar"><br>
-        <input type="submit" name="submit" value="Calculate">
-        <?php
-        if (isset($_POST["submit"]) && empty($_POST["calendar"])) {
-            $_POST['calendar'] = null;
-            echo "<h2>Please Choose Date!!!</h2>";
-        }
-        ?>
-    </form>
     <?php
+    $errorDate = "";
+    $validDate = "";
+    $caculateDate = "";
+    if (isset($_POST["submit"]) && empty($_POST["calendar"])) {
+        $_POST['calendar'] = null;
+        $errorDate = "Please Choose Date!!!";
+    }
     if (isset($_POST['calendar'])) {
-
         $userBd = strtotime($_POST['calendar']);
         $currentDate = strtotime("today");
         if (($currentDate > $userBd)) {
@@ -33,12 +28,21 @@
             $years = floor($days / 365);
             $months = floor(($days - ($years * 365)) / 30);
             $forday = floor(($days - ($years * 365) - ($months * 30)));
-            echo "<h3>Your Age is " . $years . "years/" . $months . "months/" . $forday . "days</h3>";
+            $caculateDate =  "<h3>Your Age is " . $years . "years/" . $months . "months/" . $forday . "days!!!</h3>";
         } else {
-            echo "<h2>Enter Valid Date!!!</h2>"; 
+            $validDate = "Enter Valid Date!!!";
         }
     }
     ?>
+    <h1>Tutorial_03</h1>
+    <form action="" method="POST">
+        <input type="date" name="calendar">
+        <h2><?php echo $errorDate; ?></h2>
+        <h2><?php echo $validDate; ?></h2>
+        <input type="submit" name="submit" value="Calculate">
+    </form>
+    <h3><?php echo $caculateDate; ?></h3>
+
 
 </body>
 
