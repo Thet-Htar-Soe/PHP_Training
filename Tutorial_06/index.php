@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tutorial_06</title>
     <link href="css/reset.css" rel="stylesheet" type="text/css">
-    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/img-style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -85,7 +85,15 @@
                 echo "<td><h4>" . $image . "</h4></td>";
                 echo "<td>";
         ?>
-                <a href="delete.php?photo=<?php echo $image; ?>"  onclick="return confirm('Are You Sure You Want To Delete?')" class="delete-btn">Delete</a>
+                <button class="delete-btn modal-delete-btn">Delete</button>
+                <div class="modal-box">
+                    <h4>Delete Box</h4>
+                    <p>Are You Sure You Want To Delete?</p>
+                    <div class="modal-option">
+                    <button type="cancel" class="cancel-btn">Cancel</button>
+                    <a href="delete.php?photo=<?php echo $image; ?>" class="box-delete">Delete</a>
+                    </div>
+                </div>
         <?php
                 echo "</td>";
                 echo "</tr>";
@@ -94,6 +102,7 @@
         ?>
     </table>
 
+<script src="./js/script.js"></script>
 </body>
 
 </html>

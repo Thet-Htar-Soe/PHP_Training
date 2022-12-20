@@ -36,8 +36,6 @@
             }
         }
 
-
-
         $getEmail = $_POST["email"];
         $_SESSION['email'] =  $_POST['email'];
         $_SESSION['password'] =  $_POST['password'];

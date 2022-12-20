@@ -12,7 +12,7 @@
     <section>
         <h1 style="text-align:center;">Tutorial_02 Diamond Shape</h1>
         <div style="width:200px;margin:0 auto;">
-            <pre>
+    <pre>
 <?php
 $upperSide = 1;
 while ($upperSide <= 11) {

@@ -42,8 +42,7 @@
         <input type="submit" name="submit" value="Calculate">
     </form>
     <h3><?php echo $caculateDate; ?></h3>
-
-
+    
 </body>
 
 </html>
