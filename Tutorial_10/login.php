@@ -61,8 +61,8 @@ if (isset($_POST['login'])) {
                     <div class="form-group mb-3">
                         <label>Password</label><br>
                         <input type="password" name="password" class="form-control" placeholder="password" />
-                        <small class="text-danger"><?php echo $errPsw; ?></small>
-                        <small class="text-danger"><?php echo $wrongPsw; ?></small>
+                        <small class="text-danger d-block"><?php echo $errPsw; ?></small>
+                        <small class="text-danger d-block"><?php echo $wrongPsw; ?></small>
                         <a href="forgetpsw.php" class="text-primary text-decoration-none">forget password?</a>
                     </div>
                     <div class="d-grid mt-4 mb-2">

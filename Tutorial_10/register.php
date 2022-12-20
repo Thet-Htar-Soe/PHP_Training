@@ -30,13 +30,11 @@ if (isset($_POST['register'])) {
         $invalidEmail = "Invalid Email Format";
     } else {
         $name = $_POST['name'];
-        if(!empty($_POST['phone'])) {
-            $phone = $_POST['phone'];
-            if(preg_match('/^[0-9]{10}+$/', $phone)) {
-            $phone = $_POST['phone'];
-            } else {
+        $validPhone = $_POST['phone'];
+        if(!empty($_POST['phone']) && !preg_match('/^[0]{1}[9]{1}[0-9]{9}$/', $validPhone)) {
             $invalidPhone = "Invalid Phone Number!!!";
-            }
+        } elseif(!empty($_POST['phone']) && preg_match('/^[0]{1}[9]{1}[0-9]{9}$/', $validPhone)) {
+            $phone = $validPhone;
         }
         $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
         $address = $_POST['address'];
@@ -47,7 +45,7 @@ if (isset($_POST['register'])) {
         $sql = "insert into users(name,email,password,phone,address) values(?,?,?,?,?)";
         $res = $conn->prepare($sql);
         $res->execute([$name, $email, $password, $phone, $address]);
-        echo "<div class='alert alert-success' role='alert'>User Created Successfully!!!<a href='login.php' class='btn btn-outline-success'>OK</a></div>";
+        echo "<div class='d-flex justify-content-between alert alert-success' role='alert'><span>User Created Successfully!!!</span><a href='login.php' class='btn btn-outline-success'>OK</a></div>";
     }
 }
 ?>

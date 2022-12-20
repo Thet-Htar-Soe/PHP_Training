@@ -33,7 +33,14 @@ if (isset($_POST["send"])) {
                 $mail->addAddress($_POST["email"]);
                 $mail->isHTML(true);
                 $mail->Subject = "Reset Password";
-                $mail->Body = "<a href='http://localhost/THETHTARSOE_PHP/Tutorial_10/resetpsw.php'>Here Is To Reset Your Password</a>";
+                $mail->Body = "<a href='http://localhost/THETHTARSOE_PHP/Tutorial_10/resetpsw.php' id='anchor-link' onclick='dieLink(this)'>Here Is To Reset Your Password</a>
+                <script>
+                const getLink = document.getElementById('anchor-link');
+                function dieLink(val){
+                    val.setAttribute('href','javascript:void(0)');
+                    console.log(val);
+                }
+                </script>";
                 $mail->send();
                 echo "<div class='alert alert-success' role='alert'><h6>Email has sent successfully!!!</h6></div>";
                 session_start();
