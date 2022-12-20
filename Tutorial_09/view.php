@@ -21,7 +21,7 @@ if (isset($_GET['id'])) {
             </div>
             <div class="card-body">
                 <h3><?php echo $data['title']; ?></h3>
-                <h6><i><?php echo $publish; ?> at </i><?php echo $data['created_datetime']; ?></h6>
+                <h6><i><?php echo $publish; ?> at </i><?php echo date('M d,Y',strtotime($data['created_datetime'])); ?></h6>
                 <p><?php echo $data['content'] ?></p>
                 <a href="index.php" class="btn btn-secondary">Back</a>
             </div>
