@@ -1,0 +1,35 @@
+
+.sec-crud {
+  position: relative;
+}
+
+.modal-box {
+  width: 400px;
+  height: 200px;
+  background-color: #fff;
+  border: 1px solid #000;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+  text-align: center;
+}
+
+.modal-box h4 {
+  padding: 10px 0px;
+}
+
+.modal-option {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 20px;
+}
+
+.box-delete {
+  display: inline-block;
+  background-color: red;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 3px;
+}

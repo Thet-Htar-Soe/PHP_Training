@@ -1,0 +1,6 @@
+{
+    "require": {
+        "fakerphp/faker": "^1.21",
+        "twbs/bootstrap": "^5.2"
+    }
+}
