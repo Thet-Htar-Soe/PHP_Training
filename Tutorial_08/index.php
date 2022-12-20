@@ -39,7 +39,7 @@ $no = 1;
                                 <td><?php echo $data['title'] ?></td>
                                 <td class="d-block text-truncate" style="max-width:500px;height:70px;"><?php echo $data['content'] ?></td>
                                 <td><?php echo $publish; ?></td>
-                                <td><?php echo $data['created_datetime'] ?></td>
+                                <td><?php echo date('M d,Y',strtotime($data['created_datetime'])) ?></td>
                                 <td>
                                 <a href="view.php?id=<?php echo $data['id']; ?>" class="btn btn-info d-inline">View</a>
                                 <a href="edit.php?id=<?php echo $data['id']; ?>" class="btn btn-success d-inline">Edit</a>
