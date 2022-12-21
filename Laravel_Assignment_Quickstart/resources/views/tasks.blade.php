@@ -42,7 +42,7 @@
             </thead>
             <tbody>
                 @foreach($datas as $data)
-                <tr>
+                <tr class="position-relative">
                     <td class="table-text col-md-8">
                         <div>{{$data->name}}</div>
                     </td>
@@ -51,9 +51,16 @@
                         <form action="{{url('/delete/'.$data->id)}}" method="POST" class="d-inline">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger">
+                            <div class="btn btn-danger delete-btn">
                                 <i class="fas fa-trash"></i><input type="hidden" name="" value="DELETE">
-                            </button>
+                            </div>
+                            <div class="alert alert-danger position-absolute top-50 start-50 translate-middle col-md-10 delete-box" role="alert" style="display:none;">
+                                <small>Are You Sure You Want To Delete?</small>
+                                <div class="d-flex justify-content-between mt-3">
+                                    <a href="{{url('/')}}" class="btn btn-sm btn-secondary">Cancel</a>
+                                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                </div>
+                            </div>
                         </form>
                     </td>
                 </tr>

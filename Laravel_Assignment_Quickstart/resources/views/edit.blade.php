@@ -2,13 +2,13 @@
 
 @section('content')
 <h2>Edit</h2>
-<form action="{{url('/edit/'.$data->id)}}" method="POST">
+<form action="{{url('/update/'.$data->id)}}" method="POST">
     @csrf
     @method('PUT')
     <div class="form-group">
         <label for="task" class="col-sm-3 fw-bold">Task</label>
         <div>
-            <input type="text" name="name" id="task-name" class="form-control" value={{$data->name}}>
+            <input type="text" name="name" id="task-name" class="form-control" value="{{$data->name}}">
         </div>
         @if($errors->any())
         @foreach($errors->all() as $error)
