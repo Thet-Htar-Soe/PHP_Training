@@ -3,6 +3,7 @@ session_start();
 if (!isset($_SESSION['email'])) {
     header("Location:forgetpsw.php");
 }
+
 $email = $_SESSION['email'];
 $notMatchPsw = "";
 $emptyPsw = "";
@@ -30,6 +31,7 @@ if (isset($_POST['confirm'])) {
     }
 }
 ?>
+<?php if ($_GET['token'] == $_SESSION['token']) {?>
 <section class="row mt-4">
     <div class="col-6 offset-3">
         <div class="card">
@@ -63,6 +65,11 @@ if (isset($_POST['confirm'])) {
         </div>
     </div>
 </section>
+<?php } else {
+    header("Location:forgetpsw.php");
+    session_start();
+    session_destroy();
+    }?>
 </body>
 
 </html>

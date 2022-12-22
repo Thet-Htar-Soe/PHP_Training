@@ -9,6 +9,7 @@ require 'lib/PHPMailer/src/PHPMailer.php';
 require 'lib/PHPMailer/src/SMTP.php';
 $errEmail = "";
 if (isset($_POST["send"])) {
+    $token = uniqid();
     if ($_POST['email'] == null) {
         $errEmail = "Please Enter Your Email!!!";
     } elseif (((!empty($_POST['email']) && !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)))) {
@@ -33,7 +34,7 @@ if (isset($_POST["send"])) {
                 $mail->addAddress($_POST["email"]);
                 $mail->isHTML(true);
                 $mail->Subject = "Reset Password";
-                $mail->Body = "<a href='http://localhost/THETHTARSOE_PHP/Tutorial_10/resetpsw.php' id='anchor-link' onclick='dieLink(this)'>Here Is To Reset Your Password</a>
+                $mail->Body = "<a href='http://localhost/THETHTARSOE_PHP/Tutorial_10/resetpsw.php?token=$token' id='anchor-link' onclick='dieLink(this)'>Here Is To Reset Your Password</a>
                 <script>
                 const getLink = document.getElementById('anchor-link');
                 function dieLink(val){
@@ -45,6 +46,7 @@ if (isset($_POST["send"])) {
                 echo "<div class='alert alert-success' role='alert'><h6>Email has sent successfully!!!</h6></div>";
                 session_start();
                 $_SESSION['email'] = $_POST["email"];
+                $_SESSION['token'] = $token;
             } catch (Exception $e) {
                 echo "<div class='alert alert-danger'><h6>Message could not be sent. Mailer Error: {$mail->ErrorInfo}</h6></div>";
             }
