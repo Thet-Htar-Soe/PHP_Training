@@ -58,7 +58,7 @@ class TaskController extends Controller
     public function edit($id)
     {
         $data = Task::where('id', $id)->first();
-        return view('edit', compact('data'));
+        return view('edit', compact('data')); 
     }
 
     /**
