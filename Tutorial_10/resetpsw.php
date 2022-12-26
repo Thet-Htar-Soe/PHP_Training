@@ -31,45 +31,47 @@ if (isset($_POST['confirm'])) {
     }
 }
 ?>
-<?php if ($_GET['token'] == $_SESSION['token']) {?>
-<section class="row mt-4">
-    <div class="col-6 offset-3">
-        <div class="card">
-            <div class="card-header">
-                <h2>Reset Password</h2>
+<?php if ($_GET['token'] == $_SESSION['token']) { ?>
+    <section class="row mt-4">
+        <div class="col-6 offset-3">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Reset Password</h2>
+                </div>
+
+                <form action="" method="POST">
+                    <div class="card-body">
+                        <div class="form-group mb-3">
+                            <label>Email</label><br>
+                            <input type="text" name="email" class="form-control" placeholder="name@example.com" value="<?php echo $email; ?>" disabled />
+                        </div>
+                        <div class="form-group mb-3">
+                            <label>Password</label><br>
+                            <input type="password" name="password" class="form-control" placeholder="*********" />
+                            <small class="text-danger"><?php echo $emptyPsw; ?></small>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label>Confirm Password</label><br>
+                            <input type="password" name="retype-password" class="form-control" placeholder="*********" />
+                            <small class="text-danger"><?php echo $notMatchPsw; ?></small>
+                            <small class="text-danger"><?php echo $emptyRetypePsw; ?></small>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-end">
+                        <button type="submit" name="confirm" class="btn btn-primary">Confirm</button>
+                    </div>
+                </form>
+
             </div>
-
-            <form action="" method="POST">
-                <div class="card-body">
-                    <div class="form-group mb-3">
-                        <label>Email</label><br>
-                        <input type="text" name="email" class="form-control" placeholder="name@example.com" value="<?php echo $email; ?>" disabled />
-                    </div>
-                    <div class="form-group mb-3">
-                        <label>Password</label><br>
-                        <input type="password" name="password" class="form-control" placeholder="*********" />
-                        <small class="text-danger"><?php echo $emptyPsw; ?></small>
-                    </div>
-                    <div class="form-group mb-3">
-                        <label>Confirm Password</label><br>
-                        <input type="password" name="retype-password" class="form-control" placeholder="*********" />
-                        <small class="text-danger"><?php echo $notMatchPsw; ?></small>
-                        <small class="text-danger"><?php echo $emptyRetypePsw; ?></small>
-                    </div>
-                </div>
-                <div class="card-footer d-flex justify-content-end">
-                    <button type="submit" name="confirm" class="btn btn-primary">Confirm</button>
-                </div>
-            </form>
-
         </div>
-    </div>
-</section>
-<?php } else {
-    header("Location:forgetpsw.php");
+    </section>
+<?php
+    session_destroy();
+} else {
+    header("Location:forgetpsw.php?error=reset");
     session_start();
     session_destroy();
-    }?>
+} ?>
 </body>
 
 </html>

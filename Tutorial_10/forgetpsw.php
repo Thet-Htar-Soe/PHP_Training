@@ -8,6 +8,16 @@ require 'lib/PHPMailer/src/Exception.php';
 require 'lib/PHPMailer/src/PHPMailer.php';
 require 'lib/PHPMailer/src/SMTP.php';
 $errEmail = "";
+$resetError = "";
+
+$file = "resetpsw.php";
+$path = getcwd();
+$getexplode = explode(DIRECTORY_SEPARATOR, $path);
+$searchFilepath = array_search("htdocs", $getexplode);
+$currentFolder = array_slice($getexplode, ($searchFilepath + 1));
+$connectFilepath = join("/", $currentFolder);
+$getFile = "localhost" . DIRECTORY_SEPARATOR . $connectFilepath . DIRECTORY_SEPARATOR . $file;
+
 if (isset($_POST["send"])) {
     $token = uniqid();
     if ($_POST['email'] == null) {
@@ -34,21 +44,14 @@ if (isset($_POST["send"])) {
                 $mail->addAddress($_POST["email"]);
                 $mail->isHTML(true);
                 $mail->Subject = "Reset Password";
-                $mail->Body = "<a href='http://localhost/THETHTARSOE_PHP/Tutorial_10/resetpsw.php?token=$token' id='anchor-link' onclick='dieLink(this)'>Here Is To Reset Your Password</a>
-                <script>
-                const getLink = document.getElementById('anchor-link');
-                function dieLink(val){
-                    val.setAttribute('href','javascript:void(0)');
-                    console.log(val);
-                }
-                </script>";
+                $mail->Body = "<a href='http:://$getFile?token=$token' id='anchor-link' onclick='dieLink(this)'>Here Is To Reset Your Password</a>";
                 $mail->send();
-                echo "<div class='alert alert-success' role='alert'><h6>Email has sent successfully!!!</h6></div>";
+                echo "<div class='alert alert-success d-flex justify-content-between' role='alert'><h6>Email has sent successfully!!!</h6><a href='forgetpsw.php' class='btn btn-outline-secondary'>&times;</a></div>";
                 session_start();
                 $_SESSION['email'] = $_POST["email"];
                 $_SESSION['token'] = $token;
             } catch (Exception $e) {
-                echo "<div class='alert alert-danger'><h6>Message could not be sent. Mailer Error: {$mail->ErrorInfo}</h6></div>";
+                echo "<div class='alert alert-danger d-flex justify-content-between'><h6>Message could not be sent. Mailer Error: {$mail->ErrorInfo}</h6><a href='forgetpsw.php' class='btn btn-outline-secondary'>&times;</a></div>";
             }
         } else {
             $errEmail = "Your Email Does Not Match With Any User!!!";
@@ -56,6 +59,9 @@ if (isset($_POST["send"])) {
     }
 }
 ?>
+<?php if (isset($_GET["error"])) {
+    $resetError =  "<div class='alert alert-danger d-flex justify-content-between' role='alert'><h6>Email've been already sent!!!</h6><a href='forgetpsw.php' class='btn btn-outline-secondary'>&times;</a></div>";
+} ?>
 <section class="row mt-4">
     <div class="col-6 offset-3">
         <div class="card">
@@ -64,6 +70,7 @@ if (isset($_POST["send"])) {
             </div>
             <form action="" method="POST">
                 <div class="card-body">
+                    <?php echo $resetError; ?>
                     <div class="form-group mb-3">
                         <label>Email</label><br>
                         <input type="text" name="email" class="form-control" placeholder="name@example.com" />
