@@ -17,7 +17,7 @@ class StudentDao implements StudentDaoInterface
      * 
      * @return View students
      */
-    public function index()
+    public function index() 
     {
         $students = Students::all();
         return $students;
@@ -39,7 +39,7 @@ class StudentDao implements StudentDaoInterface
      * @param Request $request
      * @return View students with create success msg
      */
-    public function store(Request $request)
+    public function store($request)
     {
         $name = $request->name;
         $email = $request->email;
@@ -72,7 +72,7 @@ class StudentDao implements StudentDaoInterface
      * @param $studentId
      * @return View students with update success msg
      */
-    public function update(Request $request, $id)
+    public function update($request, $id)
     {
         $name = $request->name;
         $email = $request->email;

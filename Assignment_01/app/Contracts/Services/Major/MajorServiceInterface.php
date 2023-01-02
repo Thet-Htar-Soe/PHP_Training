@@ -21,7 +21,7 @@ interface MajorServiceInterface
      * @param Request $request
      * @return View majors with create success msg
      */
-    public function store(Request $request);
+    public function store($request);
 
     /**
      * Show majors edit
@@ -37,7 +37,7 @@ interface MajorServiceInterface
      * @param $majorId
      * @return View majors with update success msg
      */
-    public function update(Request $request, $id);
+    public function update($request, $id);
 
     /**
      * To delete major by id

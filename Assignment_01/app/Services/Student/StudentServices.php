@@ -50,7 +50,7 @@ class StudentServices implements StudentServiceInterface
      * @param Request $request
      * @return View students with create success msg
      */
-    public function store(Request $request)
+    public function store($request)
     {
         return $this->studentDao->store($request);
     }
@@ -71,7 +71,7 @@ class StudentServices implements StudentServiceInterface
      * @param $studentId
      * @return View students with update success msg
      */
-    public function update(Request $request, $id)
+    public function update($request, $id)
     {
         return $this->studentDao->update($request, $id);
     }

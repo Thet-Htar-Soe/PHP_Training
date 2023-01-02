@@ -28,7 +28,7 @@ interface StudentServiceInterface
      * @param Request $request
      * @return View students with create success msg
      */
-    public function store(Request $request);
+    public function store($request);
 
     /**
      * Show students edit with majors' datas
@@ -43,7 +43,7 @@ interface StudentServiceInterface
      * @param $studentId
      * @return View students with update success msg
      */
-    public function update(Request $request, $id);
+    public function update($request, $id);
     
     /**
      * To delete student by id

@@ -4,7 +4,6 @@ namespace App\Dao\Major;
 
 use App\Models\Majors;
 use App\Contracts\Dao\Major\MajorDaoInterface;
-use Illuminate\Http\Request;
 
 /**
  * Data accessing object for major
@@ -20,15 +19,15 @@ class MajorDao implements MajorDaoInterface
     public function index()
     {
         $majors = Majors::all();
-        return $majors;
+        return $majors; 
     }
 
     /**
      * To submit majors create 
-     * @param Request $request
+     * @param  $request
      * @return View majors with create success msg
      */
-    public function store(Request $request)
+    public function store($request)
     {
         $name = $request->name;
         Majors::create([
@@ -51,11 +50,11 @@ class MajorDao implements MajorDaoInterface
 
     /**
      * Submit majors update
-     * @param Request $request
-     * @param $majorId
+     * @param $request
+     * @param $id
      * @return View majors with update success msg
      */
-    public function update(Request $request, $id)
+    public function update($request, $id)
     {
         $name = $request->name;
         Majors::where('id', $id)->update([
