@@ -1,0 +1,16 @@
+majors(master)(hasMany)
+--------------------
+name(string)
+created_at(datetime)
+updated_at(datetime)
+
+students(belongsTo)
+---------------------
+id
+name (string)
+email (varchar)->unique()
+phone (integer)
+address (text)
+major_id (integer)
+created_at (datetime)
+updated_at (datetime)
