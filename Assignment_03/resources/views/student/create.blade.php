@@ -39,13 +39,13 @@
                     <div class="form-group">
                         <label>Major</label>
                         <select name="major_id" class="form-select">
-                            <option selected disabled>Choose Your Major Here!!!</option>            
+                            <option selected disabled>Choose Your Major Here!!!</option>
                             @foreach ($majors as $major)
-                            @if(Request::old('major_id') == $major->id)
-                                <option value={{ $major->id }} selected>{{ $major->name }}</option>
-                            @else
-                            <option value={{ $major->id }}>{{ $major->name }}</option>
-                            @endif
+                                @if (Request::old('major_id') == $major->id)
+                                    <option value={{ $major->id }} selected>{{ $major->name }}</option>
+                                @else
+                                    <option value={{ $major->id }}>{{ $major->name }}</option>
+                                @endif
                             @endforeach
                         </select>
                         @error('major_id')
