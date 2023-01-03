@@ -53,9 +53,10 @@ class MajorController extends Controller
     {
         //Validation For Majors Name
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|unique:majors,name',
         ], [
-            'name.required' => 'Please Enter Your Major!!!'
+            'name.required' => 'Please Enter Your Major!!!',
+            'name.unique' => 'The Name Has Been Already Taken!!!'
         ]);
         $this->majorInterface->store($request);
         return redirect('/major')->with('success', 'Major Created Successfully!!!');

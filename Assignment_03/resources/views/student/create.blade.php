@@ -31,7 +31,7 @@
                     </div>
                     <div class="form-group">
                         <label>Address</label>
-                        <input type="text" name="address" class="form-control" value="{{ Request::old('address') }}" />
+                        <textarea name="address" class="form-control" rows="3">{{ Request::old('address') }}</textarea>
                         @error('address')
                             <small class="text-danger">{{ $errors->first('address') }}</small>
                         @enderror
@@ -39,9 +39,13 @@
                     <div class="form-group">
                         <label>Major</label>
                         <select name="major_id" class="form-select">
-                            <option selected disabled>Choose Your Major Here!!!</option>
+                            <option selected disabled>Choose Your Major Here!!!</option>            
                             @foreach ($majors as $major)
-                                <option value={{ $major->id }}>{{ $major->name }}</option>
+                            @if(Request::old('major_id') == $major->id)
+                                <option value={{ $major->id }} selected>{{ $major->name }}</option>
+                            @else
+                            <option value={{ $major->id }}>{{ $major->name }}</option>
+                            @endif
                             @endforeach
                         </select>
                         @error('major_id')

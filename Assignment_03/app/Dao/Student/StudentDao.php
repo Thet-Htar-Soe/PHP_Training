@@ -8,6 +8,7 @@ use App\Contracts\Dao\Student\StudentDaoInterface;
 use Illuminate\Http\Request;
 use App\Imports\StudentsImport;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Data accessing object for major
@@ -118,11 +119,13 @@ class StudentDao implements StudentDaoInterface
     public function search($request)
     {
         $searchName = $request->get('search');
-        $students = Students::join('majors', 'majors.id', 'students.major_id')
+        $students = DB::table('students')
+        ->leftJoin('majors', 'majors.id','=','students.major_id')
+        ->select('students.*', 'majors.name as majorName')
         ->where('students.name','LIKE','%'.$searchName.'%')
         ->orWhere('students.email','LIKE','%'.$searchName.'%')
         ->orWhere('majors.name','LIKE','%'.$searchName.'%')
-        ->get(['students.*','majors.name as majorName']);
+        ->get(['students.*', 'majors.name']);
         return $students;
     }
 }
