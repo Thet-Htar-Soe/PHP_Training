@@ -65,7 +65,7 @@ class MajorController extends Controller
     /**
      * Show majors edit
      * 
-     * @param $majorId
+     * @param $id
      * @return View majors edit
      */
     public function edit($id)
@@ -77,7 +77,7 @@ class MajorController extends Controller
     /**
      * Submit majors update
      * @param Request $request
-     * @param $majorId
+     * @param $id
      * @return View majors with update success msg
      */
     public function update(Request $request, $id)
@@ -95,7 +95,7 @@ class MajorController extends Controller
 
     /**
      * To delete major by id
-     * @param $majorId
+     * @param $id
      * @return View majors with delete success msg
      */
     public function delete($id)

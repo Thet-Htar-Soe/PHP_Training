@@ -40,7 +40,7 @@ class MajorDao implements MajorDaoInterface
     /**
      * Show majors edit
      * 
-     * @param $majorId
+     * @param $id
      * @return View majors edit
      */
     public function edit($id)
@@ -52,7 +52,7 @@ class MajorDao implements MajorDaoInterface
     /**
      * Submit majors update
      * @param Request $request
-     * @param $majorId
+     * @param $id
      * @return View majors with update success msg
      */
     public function update($request, $id)
@@ -66,7 +66,7 @@ class MajorDao implements MajorDaoInterface
 
     /**
      * To delete major by id
-     * @param $majorId
+     * @param $id
      * @return View majors with delete success msg
      */
     public function delete($id)

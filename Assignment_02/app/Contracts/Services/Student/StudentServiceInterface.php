@@ -32,7 +32,7 @@ interface StudentServiceInterface
 
     /**
      * Show students edit with majors' datas
-     * @param $studentId
+     * @param $id
      * @return View students edit
      */
     public function edit($id);
@@ -40,14 +40,14 @@ interface StudentServiceInterface
     /**
      * Submit students update
      * @param Request $request
-     * @param $studentId
+     * @param $id
      * @return View students with update success msg
      */
     public function update($request, $id);
 
     /**
      * To delete student by id
-     * @param $studentId
+     * @param $id
      * @return View students with delete success msg
      */
     public function delete($id);

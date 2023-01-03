@@ -60,7 +60,7 @@ class StudentController extends Controller
 
     /**
      * Show students edit with majors' datas
-     * @param $studentId
+     * @param $id
      * @return View students edit
      */
     public function edit($id)
@@ -73,7 +73,7 @@ class StudentController extends Controller
     /**
      * Submit students update
      * @param Request $request
-     * @param $studentId
+     * @param $id
      * @return View students with update success msg
      */
     public function update(StudentRequest $request, $id)

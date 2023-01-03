@@ -59,7 +59,7 @@ class StudentDao implements StudentDaoInterface
 
     /**
      * Show students edit with majors' datas
-     * @param $studentId
+     * @param $id
      * @return View students edit
      */
     public function edit($id)
@@ -71,7 +71,7 @@ class StudentDao implements StudentDaoInterface
     /**
      * Submit students update
      * @param Request $request
-     * @param $studentId
+     * @param $id
      * @return View students with update success msg
      */
     public function update($request, $id)
@@ -92,7 +92,7 @@ class StudentDao implements StudentDaoInterface
 
     /**
      * To delete student by id
-     * @param $studentId
+     * @param $id
      * @return View students with delete success msg
      */
     public function delete($id)
