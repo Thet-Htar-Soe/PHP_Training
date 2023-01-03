@@ -1,3 +1,19 @@
+{{-- Import Error Msg --}}
+@if($errors->any())
+<div class="row">
+    <div class="col-12">
+        <div class="alert alert-danger d-flex justify-content-between" role="alert">
+            <small>
+            @foreach ($errors->all() as $error)
+                {{ $error }}
+                @endforeach
+            </small>
+            <a href="{{ url('/student/import') }}" class="btn btn-outline-dark">&times;</a>
+        </div>
+    </div>
+  </div>
+@endif
+
 @extends('./../include.template')
 @section('contents')
     <div class="col-4 offset-4">
@@ -5,7 +21,7 @@
             <div class="card-header">
                 <h3>Import Students</h3>
             </div>
-            <div class="card-body">
+            <div class="card-body"> 
                 <form action={{ url('student/import') }} method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group my-3">

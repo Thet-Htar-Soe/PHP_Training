@@ -41,7 +41,7 @@ class StudentDao implements StudentDaoInterface
      * @param Request $request
      * @return View students with create success msg
      */
-    public function store(Request $request)
+    public function store($request)
     {
         $name = $request->name;
         $email = $request->email;
@@ -74,7 +74,7 @@ class StudentDao implements StudentDaoInterface
      * @param $studentId
      * @return View students with update success msg
      */
-    public function update(Request $request, $id)
+    public function update($request, $id)
     {
         $name = $request->name;
         $email = $request->email;
@@ -105,7 +105,7 @@ class StudentDao implements StudentDaoInterface
      * @param Request $request
      * @return view students 
      */
-    public function uploadStudents(Request $request)
+    public function uploadStudents($request)
     {
         return  Excel::import(new StudentsImport, $request->file('file'));
     }

@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\StudentRequest;
 use App\Contracts\Services\Student\StudentServiceInterface;
 use App\Models\Majors;
-use Illuminate\Support\Facades\Session;
 
 /**
  * This is Student controller.
@@ -52,25 +52,8 @@ class StudentController extends Controller
      * @param Request $request
      * @return View students with create success msg
      */
-    public function store(Request $request)
+    public function store(StudentRequest $request)
     {
-        //Validation For Students Name
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|email',
-            'phone' => 'required|numeric|regex:/^([0]){1}([9]){1}([0-9]){9}/u|digits:11',
-            'address' => 'required',
-            'major_id' => 'required'
-        ], [
-            'name.required' => 'Please Enter Your Name!!!',
-            'email.required' => 'Please Enter Your Email!!!',
-            'email.email' => 'Invalid Email!!!',
-            'phone.required' => 'Please Enter Your Phone!!!',
-            'phone.numeric' => 'Invalid Phone Number!!!',
-            'phone.regex' => 'Invalid Phone Format!!!',
-            'address.required' => 'Please Enter Your Address!!!',
-            'major_id.required' => 'Please Enter Your Major!!!',
-        ]);
         $this->studentInterface->store($request);
         return redirect('/student')->with('success', 'Student Created Successfully!!!');
     }
@@ -93,25 +76,8 @@ class StudentController extends Controller
      * @param $studentId
      * @return View students with update success msg
      */
-    public function update(Request $request, $id)
+    public function update(StudentRequest $request, $id)
     {
-        //Validation For Students Name
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|email',
-            'phone' => 'required|numeric|regex:/^([0]){1}([9]){1}([0-9]){9}/u|digits:11',
-            'address' => 'required',
-            'major_id' => 'required',
-        ], [
-            'name.required' => 'Please Enter Your Name!!!',
-            'email.required' => 'Please Enter Your Email!!!',
-            'email.email' => 'Invalid Email!!!',
-            'phone.required' => 'Please Enter Your Phone!!!',
-            'phone.numeric' => 'Invalid Phone Number!!!',
-            'phone.regex' => 'Invalid Phone Format!!!',
-            'address.required' => 'Please Enter Your Address!!!',
-            'major_id.required' => 'Please Enter Your Major!!!',
-        ]);
         $this->studentInterface->update($request, $id);
         return redirect('/student')->with('update', 'Student Updated Successfully!!!');
     }
@@ -146,7 +112,7 @@ class StudentController extends Controller
     {
         //Validation For CSV file
         $request->validate([
-            'file' => 'required|csv',
+            'file' => 'required|csv', 
         ], [
             'file.required' => 'Please Choose Your CSV File',
         ]);
@@ -161,5 +127,5 @@ class StudentController extends Controller
     public function exportStudents()
     {
         return $this->studentInterface->exportStudents();
-    }
+    } 
 }

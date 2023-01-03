@@ -28,7 +28,7 @@ class MajorDao implements MajorDaoInterface
      * @param Request $request
      * @return View majors with create success msg
      */
-    public function store(Request $request)
+    public function store($request)
     {
         $name = $request->name;
         Majors::create([
@@ -55,7 +55,7 @@ class MajorDao implements MajorDaoInterface
      * @param $majorId
      * @return View majors with update success msg
      */
-    public function update(Request $request, $id)
+    public function update($request, $id)
     {
         $name = $request->name;
         Majors::where('id', $id)->update([

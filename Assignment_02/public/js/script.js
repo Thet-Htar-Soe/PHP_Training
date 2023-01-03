@@ -8,5 +8,6 @@ getDeleteBtn.forEach((val, index) => {
 });
 
 function showModal(index) {
-    getModalBox[index].style.display = "block";
+    getModalBox[index].classList.remove("d-none");
+    getModalBox[index].classList.add("d-flex");
 }

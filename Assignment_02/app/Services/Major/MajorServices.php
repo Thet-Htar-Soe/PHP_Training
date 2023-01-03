@@ -40,7 +40,7 @@ class MajorServices implements MajorServiceInterface
      * @param Request $request
      * @return View majors with create success msg
      */
-    public function store(Request $request)
+    public function store($request)
     {
         return $this->majorDao->store($request);
     }
@@ -62,7 +62,7 @@ class MajorServices implements MajorServiceInterface
      * @param $majorId
      * @return View majors with update success msg
      */
-    public function update(Request $request, $id)
+    public function update($request, $id)
     {
         return $this->majorDao->update($request, $id);
     }
