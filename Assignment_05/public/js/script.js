@@ -72,7 +72,6 @@ createStudent.onsubmit = function (e) {
              if (response.data.msg == "Student Created Successfully!!!") {
                 SuccessAlertMsg(response.data.msg);
                  createStudent.reset();
-                 console.log(response.data);
                  gettableBody.innerHTML += '<tr>' +
                  '<td class="displayUpdateId">' + response.data[0].id + '</td>' +
                  '<td class="displayUpdateForName">' + response.data[0].name + '</td>' +
@@ -89,7 +88,6 @@ createStudent.onsubmit = function (e) {
                  $("#createStudent").modal("hide");
                 
              } else {
-                 console.log(response.data.msg);
                 if (createName.value == "") {
                     document.getElementById("errorName").innerHTML = response.data.msg.name; 
                 } else {
@@ -117,8 +115,16 @@ createStudent.onsubmit = function (e) {
                 }
             }
     })
-        .catch(error => console.log(error.response));
-    
+        .catch(error => console.log(error.response));   
+}
+
+function resetForm() {
+    createStudent.reset();
+    document.getElementById("errorName").innerHTML = ""; 
+    document.getElementById("errorEmail").innerHTML = ""; 
+    document.getElementById("errorPhone").innerHTML = ""; 
+    document.getElementById("errorAddress").innerHTML = "";
+    document.getElementById("errorMajor").innerHTML = "";
 }
 
   // Edit Students Datas Show With Respective Id
@@ -164,9 +170,7 @@ function editBtn(studentId) {
                 var optionText = response.data.major.name;
                 const newOption = document.createTextNode(optionText);
                 getNode.appendChild(newOption);
-                console.log(newOption);
                 var getReplaceItem = editSelect.firstChild;
-                console.log(getReplaceItem);
                 editSelect.replaceChild(getNode, getReplaceItem);
 
                 updateOldName = response.data.name;
@@ -190,6 +194,7 @@ editForm.onsubmit = function (e) {
         major_id: getEditMajor.value
     }).
         then(response => {
+            console.log(response.data);
             if (response.data.msg == "Student Updated Successfully!!!") {
                 SuccessAlertMsg(response.data.msg);
                 $("#exampleModal").modal("hide");
@@ -226,6 +231,14 @@ editForm.onsubmit = function (e) {
             }
         })
         .catch(error=>console.log(error.response));
+}
+
+//Reset Edit Form
+function resetEditForm() {
+    document.getElementById("errorEditName").innerHTML = ""; 
+    document.getElementById("errorEditEmail").innerHTML = ""; 
+    document.getElementById("errorEditPhone").innerHTML = ""; 
+    document.getElementById("errorEditAddress").innerHTML = "";
 }
 
 //Delete Student 
@@ -280,10 +293,9 @@ sendEmailStudentsForm.onsubmit = function (e) {
     axios.post('/api/students/email/' + sendMailStudentId).
         then(response => {
             if (response.data.msg == "Email Has Sent Successfully!!!") {
-                SuccessAlertMsg(response.data.msg); 
                 $("#sendMail").modal("hide");
+                SuccessAlertMsg(response.data.msg); 
             } 
-            console.log(response.data);
         }).
         catch(error=>console.log(error.response));
 }
