@@ -17,7 +17,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h3 class="modal-title">Student Create</h3>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
+                    <button type="button" class="btn-close" onclick="resetForm()" data-bs-dismiss="modal" aria-label="Close">&times;</button>
                 </div>
                 <div class="modal-body">
                     <form name="createStudent">
@@ -38,7 +38,7 @@
                         </div>
                         <div class="form-group">
                             <label>Address</label>
-                            <input type="text" name="createAddress" class="form-control" />
+                            <textarea name="createAddress" class="form-control" rows="2"></textarea>
                             <small id="errorAddress" class="text-danger"></small>
                         </div>
                         <div class="form-group">
@@ -49,7 +49,7 @@
                             <small id="errorMajor" class="text-danger d-block"></small>
                         </div>
                         <div class="d-flex justify-content-between form-group mt-2">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-secondary" onclick="resetForm()" data-bs-dismiss="modal">Close</button>
                             <button type="submit" class="btn btn-primary">Create</button>
                         </div>
                     </form>
@@ -64,7 +64,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Students Update</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="resetEditForm()">&times;</button>
                 </div>
                 <div class="modal-body">
                     <form name="editForm">
@@ -85,7 +85,7 @@
                         </div>
                         <div class="form-group">
                             <label>Address</label>
-                            <input type="text" name="address" class="form-control">
+                            <textarea name="address" class="form-control" rows="2"></textarea>
                             <small id="errorEditAddress" class="text-danger"></small>
                         </div>
                         <div class="form-group">
@@ -95,7 +95,7 @@
                             <small id="errorEditMajor" class="text-danger"></small>
                         </div>
                         <div class="d-flex justify-content-between form-group mt-2">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"  onclick="resetEditForm()">Cancel</button>
                             <button type="submit" class="btn btn-primary">Update</button>
                         </div>
                     </form>

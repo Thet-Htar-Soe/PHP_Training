@@ -27,9 +27,9 @@ class StudentController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * To show students view.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function index()
     {
@@ -40,7 +40,7 @@ class StudentController extends Controller
     /**
      * Display majors
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function showMajors()
     {
@@ -49,10 +49,10 @@ class StudentController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * To submit students create 
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param  $request
+     * @return Response
      */
     public function store(Request $request)
     {
@@ -81,10 +81,10 @@ class StudentController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the created student
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  $id
+     * @return Response
      */
     public function show($id)
     {
@@ -93,15 +93,15 @@ class StudentController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Submit students update
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  $request
+     * @param  $id
+     * @return Response
      */
     public function update(Request $request, $id)
     {
-        //Validation For Students Name
+        //Validation For Students Name 
         $validator = Validator::make($request->all(), [
             'name' => 'required',
             'email' => 'required|email',
@@ -128,10 +128,10 @@ class StudentController extends Controller
 
 
     /**
-     * Remove the specified resource from storage.
+     * To delete student by id
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  $id
+     * @return Response
      */
     public function destroy($id)
     {

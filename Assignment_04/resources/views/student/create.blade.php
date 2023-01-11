@@ -31,7 +31,7 @@
                     </div>
                     <div class="form-group">
                         <label>Address</label>
-                        <input type="text" name="address" class="form-control" value="{{ Request::old('address') }}" />
+                        <textarea name="address" class="form-control" rows="3">{{ Request::old('address') }}</textarea>
                         @error('address')
                             <small class="text-danger">{{ $errors->first('address') }}</small>
                         @enderror

@@ -29,12 +29,12 @@ Route::delete('/major/delete/{id}',[MajorController::class,"delete"]);
 
 Route::get('/ajax/students', [AjaxStudentController::class, 'index']);
 
-// Route::get('/student',[StudentController::class,"index"]);
-// Route::get('/student/create',[StudentController::class,"create"]);
-// Route::post('/student/store',[StudentController::class,"store"]);
-// Route::get('/student/edit/{id}',[StudentController::class,"edit"]);
-// Route::put('/student/update/{id}',[StudentController::class,"update"]);
-// Route::delete('/student/delete/{id}',[StudentController::class,"delete"]);
+Route::get('/student',[StudentController::class,"index"]);
+Route::get('/student/create',[StudentController::class,"create"]);
+Route::post('/student/store',[StudentController::class,"store"]);
+Route::get('/student/edit/{id}',[StudentController::class,"edit"]);
+Route::put('/student/update/{id}',[StudentController::class,"update"]);
+Route::delete('/student/delete/{id}',[StudentController::class,"delete"]);
 
 Route::get('/student/import',[StudentController::class,"import"]);
 Route::post('/student/import',[StudentController::class,"uploadStudents"]);

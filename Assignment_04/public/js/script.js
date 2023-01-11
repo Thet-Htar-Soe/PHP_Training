@@ -68,6 +68,7 @@ createStudent.onsubmit = function (e) {
             major_id: createMajor.value
     })
          .then(response => {
+             console.log(response.data);
              if (response.data.msg == "Student Created Successfully!!!") {
                 SuccessAlertMsg(response.data.msg);
                  createStudent.reset();
@@ -115,8 +116,17 @@ createStudent.onsubmit = function (e) {
                 }
             }
     })
-        .catch(error => console.log(error.response));
-    
+        .catch(error => console.log(error.response));   
+}
+
+//Reset Create Form
+function resetForm() {
+    createStudent.reset();
+    document.getElementById("errorName").innerHTML = ""; 
+    document.getElementById("errorEmail").innerHTML = ""; 
+    document.getElementById("errorPhone").innerHTML = ""; 
+    document.getElementById("errorAddress").innerHTML = "";
+    document.getElementById("errorMajor").innerHTML = "";
 }
 
   // Edit Students Datas Show With Respective Id
@@ -160,9 +170,7 @@ function editBtn(studentId) {
                 var optionText = response.data.major.name;
                 const newOption = document.createTextNode(optionText);
                 getNode.appendChild(newOption);
-                console.log(newOption);
                 var getReplaceItem = editSelect.firstChild;
-                console.log(getReplaceItem);
                 editSelect.replaceChild(getNode, getReplaceItem);
 
                 updateOldName = response.data.name;
@@ -223,6 +231,16 @@ editForm.onsubmit = function (e) {
         })
         .catch(error=>console.log(error.response));
 }
+
+//Reset Edit Form
+function resetEditForm() {
+    document.getElementById("errorEditName").innerHTML = ""; 
+    document.getElementById("errorEditEmail").innerHTML = ""; 
+    document.getElementById("errorEditPhone").innerHTML = ""; 
+    document.getElementById("errorEditAddress").innerHTML = "";
+}
+
+//Delete Student 
 var togetId;
 function deleteBtn(value) { 
     togetId = value;
@@ -250,7 +268,6 @@ document.getElementById("getDeleteStudentId").addEventListener("click", function
         })
         .catch(error=>console.log(error.response)); 
     })
-
 
 // Helper Functions
 function SuccessAlertMsg(val) {
